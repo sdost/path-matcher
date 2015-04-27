@@ -11,12 +11,12 @@ python main.py < inputfile > outputfile
 The application grabs input from stdin line by line in main.py, and processes it in a simple state machine in the Processor class. This class contains the logic which parses the input based on the specifications set forth. The count is read for patterns, and then that many patterns are processed and added to a tree structure called PatternTree. The pattern tree breaks down the pattern by element and creates a hierarchy representing it within the tree. Any common elements from other patterns are reused within the tree to provide branching hierarchies, e.g. '*,b,*' and '*,*,c' have a common starting wildcard, and would be represented as:
 ```
 val => *
-		val => b
-			val => *
-				val => None
+	val => b
 		val => *
-			val => c
-				val => None
+			val => None
+	val => *
+		val => c
+			val => None
 ```
 The end of patterns are denoted with a None child.
 
