@@ -37,8 +37,8 @@ class PatternTree:
         pattern_arr = filter(None, pattern_arr)
 
         while pattern_arr:
-            # pop the first element and clean up any stray whitespace
-            matcher = pattern_arr.pop(0).strip()
+            # pop the first element
+            matcher = pattern_arr.pop(0)
 
             child = curr.get_child(matcher)
             if(child):
@@ -70,8 +70,8 @@ class PatternTree:
     def __match_path(self, curr_node, path_arr):
         if(path_arr):
             # we have more path elements
-            # pop the first element and clean up any stray whitespace
-            element = path_arr.pop(0).strip()
+            # pop the first element
+            element = path_arr.pop(0)
 
             paths = []
             for child in curr_node.children:
